@@ -1,0 +1,78 @@
+1. The elevator has a capacity of 4 persons.
+
+2. It takes always 5 seconds for the elevator to move one floor
+   up or down.
+
+3. If the elevator stops at one floor, it takes always 25
+   seconds.
+
+4. If there are no passengers in the elevator (i.e. everyone left
+   at one floor, and nobody is wating there), the elevator moves
+   directly to the floor, with passengers waiting, which has been
+   visited least recently. If there are several, it moves to the
+   closest. If there are still two in the same distance, it moves
+   down.
+
+5. When an empty elevator arrives to a floor, or all passengers
+   leave the elavator at a floor, and there are passengers
+   waiting there, the passenger which has been waiting longest
+   decides which direction the elevator will move.
+
+6. Passangers only enter the elevator (given it stopped at a
+   floor) if it is moving the right direction, and maximum
+   capacity is not reached. People are polite, and let those
+   enter first who have been wating longest. People who want to
+   travel the other direction will wait.
+
+7. The elevator with passengers is moving towards the furthest
+   floor requested by the passengers, and only stops on the way
+   if there are passengers who want to get off, or if there are
+   passengers wating at a floor the elevator passes, who want to
+   travel in the same direction, and the elevator is not full.
+
+
+
+Task: Write a program which computes, for a given set of waiting
+      passengers, how long each person will wait for the
+      elevator, and when they will arrive to their destination.
+      The choice of programming language is free, but the program
+      should compile and run on a standard Linux distribution without
+      addtional tools or libraries.
+
+Allowed time: 2 hours
+
+Input:
+  1st line:     The elevators starting position at t=0. If there are no
+                passengers waiting there, the elevator will start moving
+                immediately.
+  2nd-nth line: List of floors with passengers waiting. The passengers
+                have arrived in the order as listes, the first on the
+                list has been waiting longest. The passengers are
+                represented as a single integer, which is the floor they
+                want to travel to. We assume no new passengers arive
+                after t=0. If a floor is not listed, no passengers
+                are waiting there.
+
+Example:
+-------------------
+E:5
+0:3,3,7,2,6,6,3,4,4,4
+1:9,5,5,0
+4:0,0,0,8,9
+6:0,0,0,2,0,3
+8:4,4,2,2,2
+-------------------
+
+Output:
+  one line per passenger: origin->destination left=t1 arrived=t2
+
+Example:
+-------------------
+4->0 left=30s arrived=75s
+4->0 left=30s arrived=75s
+4->0 left=30s arrived=75s
+1->0 left=70s arrived=75s
+0->2 left=100s arrived=110s
+0->3 left=100s arrived=140s
+...
+-------------------
