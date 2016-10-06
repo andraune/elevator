@@ -24,7 +24,11 @@ void Elevator::run()
 	while (true)
 	{
 		// Anyone going ON of OFF - takes 25 secs
-		if (passengersOff() + passengersOn() > 0)
+		int passengersOffOn = 0;
+		passengersOffOn += passengersOff();
+		passengersOffOn += passengersOn();
+		
+		if (passengersOffOn > 0)
 		{
 			_time += STOP_INCR;
 		}
