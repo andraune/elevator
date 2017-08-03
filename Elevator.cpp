@@ -1,5 +1,5 @@
 #include "Elevator.h"
-#include "Math.h"
+#include <stdlib.h>"
 
 #define FILE_OUT	"testdata.out"
 using namespace std;
