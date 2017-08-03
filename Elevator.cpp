@@ -1,4 +1,5 @@
 #include "Elevator.h"
+#include "Math.h"
 
 #define FILE_OUT	"testdata.out"
 using namespace std;
@@ -135,7 +136,7 @@ int Elevator::getNextDest() const
 				else if (tmpWaiting == maxWaiting)
 				{
 					// waiting time is equal, must check distance from current floor
-					int tmpDiff = abs(nextDest - _floor) - abs(i - _floor);
+					int tmpDiff = abs(nextDest - _floor) - abs((int)i - _floor);
 
 					if (tmpDiff > 0)
 					{
